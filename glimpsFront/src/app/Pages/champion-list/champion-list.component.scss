@@ -6,7 +6,7 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 50px;
-    margin-top: 500px;
+    margin-top: 150px;
   }
   li {
     list-style: none;
@@ -17,12 +17,22 @@
       scale: 1.02;
     }
   }
-  img {
+  .topLine {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p {
+      font-family: "Roboto", sans-serif;
+      color: #ed9e54;
+      font-size: 16px;
+    }
+  }
+  .championPic {
     width: 500px;
     height: 300px;
     object-fit: cover;
   }
-  p {
+  .championName {
     position: absolute;
     right: 20px;
     bottom: 10px;
@@ -36,7 +46,33 @@
     background-color: black;
     opacity: 0.7;
     bottom: 0px;
+    display: flex;
+    align-items: center;
+
+    p {
+      font-family: "Roboto", sans-serif;
+      color: #ed9e54;
+      margin-left: 10px;
+    }
   }
+  h2 {
+    text-align: center;
+    font-size: 60px;
+    margin-top: 150px;
+  }
+  .offerText {
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    color: #ed9e54;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 30px;
+  }
+}
+.beginnerIcon {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
 }
 .fetchError {
   display: flex;
@@ -51,4 +87,10 @@
   justify-content: center;
   margin-top: 10%;
   font-size: 60px;
+}
+.beginnerText {
+  display: none;
+}
+.beginnerIcon:hover + .beginnerText {
+  display: block;
 }

@@ -2,7 +2,6 @@ import { environment } from "../../environments/environments";
 
 export class Api {
 
-
     static async getChampionsList(){
         try {
             const response = await fetch(`${environment.BaseUrl}13.10.1/data/en_US/champion.json`);

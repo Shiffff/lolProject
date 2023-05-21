@@ -5,12 +5,24 @@
         <p>Oops, Please try again later.</p>
       </div>
     <div class="championListContainer" *ngIf="!loading">
+        
+            <h2>Champions gratuits de la semaine</h2>
+            <p class="offerText">Découvrez l'offre réservée aux débutants.</p>
+            <div class="topLine">
+                <img class="beginnerIcon" src="assets/icon/beginner.svg" alt="Débutant">
+                <p>Offre réservée aux débutants dont le niveau est inférieur à 10 </p>
+            </div>
+
+
         <ul>
             <li *ngFor="let champion of championInfo">
                 <a [routerLink]="['/champion', champion.champion.id]">
-                    <img [src]="'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/' + champion.champion.name + '_0.jpg'" [alt]="champion.champion.name">
-                    <div class="bottomCard"></div>
-                    <p>{{champion.champion.name}}</p> 
+                    <img class="championPic" [src]="'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/' + champion.champion.name + '_0.jpg'" [alt]="champion.champion.name">
+                    <div class="bottomCard">        
+                        <img class="beginnerIcon" src="assets/icon/beginner.svg" alt="Débutant" *ngIf="champion.isFreeForNewPlayer">
+                        <p class="beginnerText" *ngIf="champion.isFreeForNewPlayer">Réservé aux débutants (inf. lvl 10)</p>
+                    </div>
+                    <p class="championName">{{champion.champion.name}}</p> 
                 </a>
             </li>
         </ul>
