@@ -1,0 +1,92 @@
+.championContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+
+  .infoChampion {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-top: 50px;
+  }
+  .championTop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    img {
+      width: 60%;
+    }
+    p {
+      position: absolute;
+      font-size: 50px;
+    }
+    .championTopTitle {
+      bottom: 20px;
+    }
+    .championTopDescr {
+      bottom: 80px;
+      font-size: 80px;
+    }
+  }
+  li {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    align-items: center;
+    position: relative;
+    &:hover p {
+      display: block;
+    }
+    img {
+      width: 50px;
+      height: 50px;
+    }
+    p {
+      font-family: "Roboto", sans-serif;
+      margin-top: 20px;
+      position: absolute;
+      bottom: -30px;
+      display: none;
+      text-align: center;
+      width: 200px;
+    }
+  }
+  ul {
+    display: flex;
+    gap: 30px;
+  }
+  .loreChampion {
+    font-family: "Roboto", sans-serif;
+    margin-top: 100px;
+    width: 60%;
+    text-align: justify;
+    font-size: 20px;
+    padding: 30px;
+    border: 0.5px solid rgb(46, 45, 45);
+  }
+}
+.fetchError {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 80px;
+  margin-top: 10%;
+}
+.arrowSvg {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 70px;
+  top: 120px;
+  z-index: 1;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    scale: 1.05;
+  }
+}

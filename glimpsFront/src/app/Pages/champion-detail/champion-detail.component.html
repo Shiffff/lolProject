@@ -1,0 +1,44 @@
+<div *ngIf="loading">
+    <p>Loading...</p>
+</div>
+<div class="fetchError" *ngIf="fetchError">
+    <p>Oops, Please try again later.</p>
+  </div>
+<div class="championContainer" *ngIf="!loading">
+    <img class="arrowSvg" src="assets/icon/arrow.svg" alt="arrow" [routerLink]="['/champions']">
+    <div class="championTop">
+        <img [src]="'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/' + championSelected.champion.name + '_1.jpg'" [alt]="championSelected.champion.name">
+        <p class="championTopTitle">{{ championSelected.champion.title }}</p>
+        <p class="championTopDescr">{{ championSelected.champion.name }}</p>
+
+    </div>
+    <div class="infoChampion" *ngIf="!loading">
+        <ul>
+            <li>
+                <img src="assets/icon/sword.svg" alt="Attack">
+                <p>{{championSelected.champion.info.attack}}</p>
+            </li>
+            <li>
+                <img src="assets/icon/shield.svg" alt="Defense">
+                <p>{{championSelected.champion.info.defense}}</p>
+            </li>
+            <li>
+                <img src="assets/icon/spark.svg" alt="Magic">
+                <p>{{championSelected.champion.info.magic}}</p>
+            </li>
+            <li>
+                <img src="assets/icon/difficulty.svg" alt="Difficulty">
+                <p>{{championSelected.champion.info.difficulty}}</p>
+            </li>
+        </ul>
+        <ul>
+            <li *ngFor="let spell of championSelected.champion.spells">
+                <img [src]="'https://ddragon.leagueoflegends.com/cdn/13.10.1/img/spell/' + spell.image.full" [alt]="spell.name">
+                <p>{{spell.name}}</p>
+            </li>
+        </ul>
+    </div>
+    <p class="loreChampion" *ngIf="!loading">{{championSelected.champion.lore}}</p>
+</div>
+
+

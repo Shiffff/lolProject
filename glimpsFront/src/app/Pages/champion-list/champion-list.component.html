@@ -1,0 +1,19 @@
+    <div *ngIf="loading">
+        <p>Loading...</p>
+    </div>
+    <div class="fetchError" *ngIf="fetchError">
+        <p>Oops, Please try again later.</p>
+      </div>
+    <div class="championListContainer" *ngIf="!loading">
+        <ul>
+            <li *ngFor="let champion of championInfo">
+                <a [routerLink]="['/champion', champion.champion.id]">
+                    <img [src]="'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/' + champion.champion.name + '_0.jpg'" [alt]="champion.champion.name">
+                    <div class="bottomCard"></div>
+                    <p>{{champion.champion.name}}</p> 
+                </a>
+            </li>
+        </ul>
+      
+
+    </div> 
