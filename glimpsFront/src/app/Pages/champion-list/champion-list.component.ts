@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Api } from 'src/app/Services/api';
+import { Formater } from 'src/app/Services/formater';
 
 @Component({
   selector: 'app-champion-list',
@@ -13,9 +13,9 @@ export class ChampionListComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     try {
-      this.championInfo = await Api.getChampionsDetails();
-      console.log(this.championInfo)
+      this.championInfo = await Formater.sortChampions();
       this.loading = false;
+      console.log(this.championInfo)
     } catch (error) {
       console.error(error);
       this.loading = false;

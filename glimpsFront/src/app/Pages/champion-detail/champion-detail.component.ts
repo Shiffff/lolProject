@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Api } from 'src/app/Services/api';
 import { Formater } from 'src/app/Services/formater';
 
 @Component({
@@ -21,13 +20,13 @@ export class ChampionDetailComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     try {
-      this.championInfo = await Api.getChampionsDetails();
+      this.championInfo = await Formater.sortChampions();
       this.championId = this.route.snapshot.paramMap.get('id') || '';
       this.championSelected = await Formater.findChampion(this.championInfo, this.championId);
+
       if (this.championSelected === undefined) {
         this.router.navigate(['/unknown']);
       }
-
       this.loading = false;
     } catch (error) {
       console.error(error);
